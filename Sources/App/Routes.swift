@@ -44,6 +44,9 @@ extension Droplet {
           guard let disQuery = try District.makeQuery().filter("district", newDistrict).first() else {
             return "district does not exist"
           }
+          guard let collQuery = try College.makeQuery().filter("college", newCollege).first() else {
+            return "college already exists"
+          }
           let college = College(district: disQuery,college: newCollege)
           try college.save()
           return try JSON(node: College.all())
@@ -145,6 +148,18 @@ extension Droplet {
 
         get("colleges") { req in
             return try JSON(node: College.all())
+        }
+
+        get("degrees") { req in
+            return try JSON(node: Degree.all())
+        }
+
+        get("departments") { req in
+            return try JSON(node: Department.all())
+        }
+
+        get("districts") { req in
+            return try JSON(node: District.all())
         }
 
         post("signin") { request in

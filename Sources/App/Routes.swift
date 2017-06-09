@@ -157,7 +157,7 @@ extension Droplet {
           guard let password = request.data["password"]?.string else {
             throw Abort.badRequest
           }
-          var admin = Admin(
+          let admin = Admin(
                         name : name,
                         email_id : email_id,
                         password : password,
@@ -253,7 +253,7 @@ extension Droplet {
             let set1:Set<College> = Set(discolleges)
             let set2:Set<College> = Set(degcolleges)
             let colleges = set1.intersection(set2)
-            return try JSON(node: discolleges)
+            return try JSON(node: colleges)
         }
 
         post("temp") { request in

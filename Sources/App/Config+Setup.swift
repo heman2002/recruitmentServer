@@ -24,6 +24,7 @@ extension Config {
         preparations.append(District.self)
         preparations.append(College.self)
         preparations.append(Degree.self)
+        preparations.append(Department.self)
         preparations.append(Pivot<College, Degree>)
         preparations.append(Recruit.self)
         preparations.append(Admin.self)

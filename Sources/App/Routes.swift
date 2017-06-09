@@ -119,7 +119,7 @@ extension Droplet {
         }
 
         get("meeting") { req in
-            return try JSON(node: Recruit.makeQuery().filter("status","meeting").all())
+            return try JSON(node: Meeting.all())
         }
 
         get("calldrop1") { req in

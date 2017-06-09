@@ -50,7 +50,6 @@ extension College: JSONRepresentable {
         try json.set("id", id)
         try json.set("district", District.makeQuery().filter("id",district).first())
         try json.set("college", college)
-        try json.set("degrees", degrees)
         return json
     }
 }
